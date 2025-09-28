@@ -20,7 +20,7 @@ import java.io.FileInputStream
 import java.io.FileOutputStream
 import java.io.IOException
 import java.io.OutputStream
-import java.net.URL
+import java.net.URI
 import java.nio.ByteBuffer
 import java.nio.file.Files
 import java.nio.file.Path
@@ -34,8 +34,8 @@ object Main {
             if (Files.exists(Paths.get(argument))) {
                 FileInputStream(argument)
             } else {
-                URL("https://github.com/evansiroky/timezone-boundary-builder/releases/download/" + argument +
-                        "/timezones-with-oceans.geojson.zip").openStream()
+                URI("https://github.com/evansiroky/timezone-boundary-builder/releases/download/" + argument +
+                        "/timezones-with-oceans.geojson.zip").toURL().openStream()
             }
 
     private fun List<LngLatAlt>.convertRing(): List<LatLon> =
