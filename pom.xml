@@ -4,7 +4,7 @@
     <groupId>us.dustinj.timezonemap</groupId>
     <artifactId>timezonemap-parent</artifactId>
     <packaging>pom</packaging>
-    <version>4.5</version>
+    <version>4.6</version>
 
     <name>Time Zone Map Parent</name>
     <description>A library for getting time zone information from location data.</description>
@@ -42,7 +42,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <!-- From: https://github.com/evansiroky/timezone-boundary-builder/releases/ -->
-        <map.version>2020d</map.version>
+        <map.version>2025b</map.version>
         <map.archive.version>${project.version}:${map.version}</map.archive.version>
 
         <zstd.version>1.4.9-5</zstd.version>
@@ -66,14 +66,6 @@
 
     <build>
         <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.11.0</version>
-                <configuration>
-                  <release>21</release>
-                </configuration>
-              </plugin>
             <plugin>
                 <!-- Code coverage for Java. Produces files in the target/site/jacoco folder. -->
                 <groupId>org.jacoco</groupId>
@@ -167,7 +159,15 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <jvmTarget>1.8</jvmTarget>
+                    <jvmTarget>20</jvmTarget>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.11.0</version>
+                <configuration>
+                  <release>21</release>
                 </configuration>
             </plugin>
         </plugins>

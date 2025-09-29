@@ -4,7 +4,7 @@
     <parent>
         <groupId>us.dustinj.timezonemap</groupId>
         <artifactId>timezonemap-parent</artifactId>
-        <version>4.5</version>
+        <version>4.6</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
@@ -14,6 +14,7 @@
     <name>Builder Utility</name>
 
     <build>
+        <sourceDirectory>src/main/kotlin</sourceDirectory>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -38,7 +39,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
-                <version>3.2.0</version>
+                <version>3.3.0</version>
                 <configuration>
                     <archive>
                         <manifest>
@@ -49,6 +50,30 @@
                     </archive>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.jetbrains.kotlin</groupId>
+                <artifactId>kotlin-maven-plugin</artifactId>
+                <version>1.9.10</version>
+                <executions>
+                  <execution>
+                    <id>builder-kotlin-compile</id>
+                    <phase>compile</phase>
+                    <goals>
+                      <goal>compile</goal>
+                    </goals>
+                  </execution>
+                  <execution>
+                    <id>builder-kotlin-test-compile</id>
+                    <phase>test-compile</phase>
+                    <goals>
+                      <goal>test-compile</goal>
+                    </goals>
+                  </execution>
+                </executions>
+                <configuration>
+                  <jvmTarget>20</jvmTarget>
+                </configuration>
+              </plugin>
         </plugins>
     </build>
 
